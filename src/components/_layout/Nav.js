@@ -10,17 +10,17 @@ const nav = [
 	'Морские птицы'
 ];
 
-const navItems = nav.map((item) =>
-	<li>{item}</li>
-);
-
 export class Nav extends React.Component {
+	navItems = nav.map((item, i) =>
+	<li className={this.props.step === i ? 'selected' : ''} key={i}>{item}</li>
+	);
+	
 	render() {
 		return (
 			<AppBar position="static">
 				<nav>
 					<ul>
-						{navItems}
+						{this.navItems}
 					</ul>
 				</nav>
 			</AppBar>

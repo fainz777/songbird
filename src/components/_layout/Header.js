@@ -13,9 +13,9 @@ export class Header extends  React.Component {
 					alignItems="center"
 				>
 					<h1>SongBird</h1>
-					<div>Score: 11</div>
+					<div>Score: {this.props.score}</div>
 				</Grid>
-				<Nav/>
+				<Nav step={this.props.step}/>
 			</header>
 		);
 	}

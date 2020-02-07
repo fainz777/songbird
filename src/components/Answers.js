@@ -13,21 +13,34 @@ const answers = ['Ворон',
 	'Синица'
 ];
 
-const listItems = answers.map((answer) =>
-	<ListItem button>
-		<ListItemText primary={answer} />
-	</ListItem>
-);
+
 
 export class Answers extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: null,
+		};
+	}
+	
+	listItems = answers.map((answer, i) =>
+	<ListItem button onClick={() => {console.log('click', i); this.setState({value: i})}} key={i}>
+		<ListItemText primary={answer} />
+	</ListItem>
+	);
+	
 	render () {
 		return (
 			<Card>
 				<CardContent>
 					<List component="nav">
-						{listItems}
+						{this.listItems}
+						<ListItem button onClick={() => {console.log('click'); this.setState({value: 'test'})}} key={'11'}>
+							<ListItemText primary={'answer'} />
+						</ListItem>
 					</List>
 				</CardContent>
+				<div>==> {this.state.value}</div>
 			</Card>
 		);
 	}
