@@ -8,7 +8,9 @@ export class Question extends React.Component {
 			<Card>
 				<CardContent>
 					<img src="placeholder.jpg" alt=""/>
-					<div>******</div>
+					<div>
+						{this.props.isNextStepAvailable ? this.props.birdName : '******'}
+					</div>
 					<div>
 						<audio src={this.props.song} controls />
 					</div>

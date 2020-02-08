@@ -6,18 +6,24 @@ import { BirdInfo } from "../BirdInfo";
 
 export class Main extends React.Component {
 	render() {
-		console.log('Main birds: ', this.props.birds);
-		const song = this.props.birds[this.props.guessIndex].audio
+		const song = this.props.birds[this.props.guessIndex].audio;
+		const birdName = this.props.birds[this.props.guessIndex].name;
+		console.log('Main: ', this.props);
 		return (
 			<main>
 				<Grid container spacing={3} alignItems="stretch">
 					<Grid item xs={12}>
-						<Question song={song} />
+						<Question
+							song={song}
+							birdName={birdName}
+							isNextStepAvailable={this.props.isNextStepAvailable}/>
 					</Grid>
 
 					<Grid item xs={12} sm={6}>
 						<Answers
 							birds={this.props.birds}
+							answer={this.props.answer}
+							tries={this.props.tries}
 							onClick={this.props.onClick} />
 					</Grid>
 

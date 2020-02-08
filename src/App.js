@@ -9,6 +9,9 @@ import {Main} from "./components/_layout/Main";
 
 import './App.css';
 
+const price = 5;
+const penalty = 1;
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -20,19 +23,30 @@ class App extends React.Component {
 			step: 0,
 			guessIndex: SongBirdGameService.getGuessedIndex(birdsData, 0),
 			answer: null,
-			isNextStepAvailable: false
+			isNextStepAvailable: false,
+			tries: []
 		};
 	}
 
 	handleClick(i) {
+		if (this.state.tries.includes(i) || this.state.answer === this.state.guessIndex) {
+			return;
+		}
+
 		this.setState({answer: i});
-		console.log('App handle click: ', i, this);
+
 		if (i === this.state.guessIndex) {
+			const score = this.state.score + price - penalty * this.state.tries.length;
+			this.setState({score: score});
+
 			this.setState({
 				isNextStepAvailable: true
 			});
 		} else {
-			console.log('incorrect');
+			// ToDo: refactor
+			const tries = [...this.state.tries];
+			tries.push(i);
+			this.setState({tries: tries});
 		}
 	}
 
@@ -43,13 +57,13 @@ class App extends React.Component {
 			guessIndex: SongBirdGameService.getGuessedIndex(this.state.birdsData, step),
 			answer: null,
 			isNextStepAvailable: false,
+			tries: []
 		});
 	}
 
 	render() {
 		const isNextStepAvailable = this.state.isNextStepAvailable;
-		console.log('render start: ', this.state);
-		console.log('render birds: ',this.state.birdsData[this.state.step])
+console.log('App: ', this.state);
 		return (
 			<Container maxWidth="lg">
 				<Header
@@ -59,6 +73,8 @@ class App extends React.Component {
 					birds={this.state.birdsData[this.state.step]}
 					guessIndex={this.state.guessIndex}
 					answer={this.state.answer}
+					isNextStepAvailable={this.state.isNextStepAvailable}
+					tries={this.state.tries}
 					onClick={this.handleClick.bind(this)}/>
 
 				{isNextStepAvailable ? (

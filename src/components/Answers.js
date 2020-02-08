@@ -6,12 +6,23 @@ import {AnswerItem} from "./AnswerItem";
 
 export class Answers extends React.Component {
 	render () {
-		const listItems = this.props.birds.map((bird, i) =>
-			<AnswerItem
-				i={i}
-				birdName={bird.name}
-				onClick={() => this.props.onClick(i)}
-			/>
+		console.log('Answers: ', this.props);
+		const listItems = this.props.birds.map((bird, i) => {
+			const arr = this.props.tries;
+			// debugger;
+			const itemClass = this.props.tries.includes(i) ? 'red' :
+				(this.props.answer === i ? 'green' : '');
+
+			return (
+				<AnswerItem
+					key={i}
+					i={i}
+					birdName={bird.name}
+					itemClass={itemClass}
+					onClick={this.props.onClick}
+				/>
+			);
+			}
 		);
 
 		return (

@@ -7,8 +7,8 @@ export class AnswerItem extends Component {
 		return (
 			<ListItem
 				button
-				onClick={() => this.props.onClick(this.props.i)}
-				key={this.props.i}>
+				className={this.props.itemClass}
+				onClick={() => this.props.onClick(this.props.i)} >
 				<ListItemText primary={this.props.birdName} />
 			</ListItem>
 		);

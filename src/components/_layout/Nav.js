@@ -16,7 +16,8 @@ export class Nav extends React.Component {
 		const navItems = nav.map((item, i) =>
 			<NavItem
 				step={this.props.step}
-				i={i}
+				key={i}
+				current={i}
 				item={item} />
 		);
 
