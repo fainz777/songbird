@@ -1,13 +1,15 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 function emptyCard() {
 	return (
-		<div>
+		<CardContent>
 			Послушайте плеер.<br/>
 			Выберите птицу из списка
-		</div>
+		</CardContent>
 
 	);
 }
@@ -15,14 +17,27 @@ function emptyCard() {
 function cardInfoOutput(bird) {
 	return (
 		<div>
-			<img src={bird.image} alt=""/>
-			<div>{bird.name}</div>
-			<div>bird.species</div>
-			<audio
-				src={bird.audio}
-				controls/>
-			<div>{bird.description}</div>
+			<CardMedia
+				style={{'height': '240px'}}
+				image={bird.image}
+				title={bird.name}
+			/>
+			<CardContent>
+				<Typography gutterBottom variant="h5" component="h2">
+					{bird.name}
+				</Typography>
+				<Typography gutterBottom variant="h5" component="h2">
+					{bird.species}
+				</Typography>
+				<audio
+					src={bird.audio}
+					controls/>
+				<Typography variant="body2" color="textSecondary" component="p">
+					{bird.description}
+				</Typography>
+			</CardContent>
 		</div>
+
 );
 }
 
@@ -42,9 +57,10 @@ export class BirdInfo extends React.Component {
 
 		return (
 			<Card>
-				<CardContent>
+
+				{/*<CardContent>*/}
 					{cardContent}
-				</CardContent>
+				{/*</CardContent>*/}
 			</Card>
 		);
 	}

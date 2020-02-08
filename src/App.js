@@ -1,5 +1,8 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import DoubleArrow from '@material-ui/icons/DoubleArrow';
 import {SongBirdGameService} from "./services/songBirdGameService";
 import {Header} from './components/_layout/Header';
 import {Main} from "./components/_layout/Main";
@@ -39,10 +42,12 @@ class App extends React.Component {
 			step: step,
 			guessIndex: SongBirdGameService.getGuessedIndex(this.state.birdsData, step),
 			answer: null,
+			isNextStepAvailable: false,
 		});
 	}
 
 	render() {
+		const isNextStepAvailable = this.state.isNextStepAvailable;
 		console.log('render start: ', this.state);
 		console.log('render birds: ',this.state.birdsData[this.state.step])
 		return (
@@ -56,8 +61,13 @@ class App extends React.Component {
 					answer={this.state.answer}
 					onClick={this.handleClick.bind(this)}/>
 
-				<button onClick={this.goNextStep.bind(this)}>Next step</button>
-				<br/><br/>
+				{isNextStepAvailable ? (
+					<Button
+						variant="contained"
+						color="primary"
+						endIcon={<DoubleArrow />}
+						onClick={this.goNextStep.bind(this)}>Next step</Button>
+				) : (null)}
 			</Container>
 		);
 	}

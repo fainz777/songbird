@@ -16,11 +16,9 @@ export class Answers extends React.Component {
 
 		return (
 			<Card>
-				<CardContent>
-					<List component="nav">
-						{listItems}
-					</List>
-				</CardContent>
+				<List component="nav">
+					{listItems}
+				</List>
 			</Card>
 		);
 	}
