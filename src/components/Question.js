@@ -10,7 +10,7 @@ export class Question extends React.Component {
 					<img src="placeholder.jpg" alt=""/>
 					<div>******</div>
 					<div>
-						<audio src="https://www.xeno-canto.org/sounds/uploaded/ZNCDXTUOFL/XC477326-dudek%20%282%29.mp3" controls />
+						<audio src={this.props.song} controls />
 					</div>
 				</CardContent>
 			</Card>

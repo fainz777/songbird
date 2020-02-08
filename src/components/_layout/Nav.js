@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
+import {NavItem} from './NavItem';
 
 const nav = [
 	'Разминка',
@@ -11,16 +12,20 @@ const nav = [
 ];
 
 export class Nav extends React.Component {
-	navItems = nav.map((item, i) =>
-	<li className={this.props.step === i ? 'selected' : ''} key={i}>{item}</li>
-	);
-	
 	render() {
+		const navItems = nav.map((item, i) =>
+			<NavItem
+				step={this.props.step}
+				i={i}
+				item={item} />
+		);
+
+		console.log('nav this.props.step: ', this.props.step);
 		return (
 			<AppBar position="static">
 				<nav>
 					<ul>
-						{this.navItems}
+						{navItems}
 					</ul>
 				</nav>
 			</AppBar>
