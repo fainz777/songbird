@@ -14,10 +14,10 @@ export class Header extends  React.Component {
 					justify="space-between"
 					alignItems="center"
 				>
-					<Grid item xs={3}>
+					<Grid item xs={12} sm={3}>
 						<h1 className="logo">SongBird</h1>
 					</Grid>
-					<Grid item xs={3}>
+					<Grid item xs={12} sm={3}>
 						<Typography variant="h4" gutterBottom>
 							<div className="score">Score: {this.props.score}</div>
 						</Typography>

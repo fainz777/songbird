@@ -30,7 +30,7 @@ export class Main extends React.Component {
 					</Grid>
 
 					<Grid item xs={12} sm={6}>
-						<BirdInfo data={isNaN(this.props.answer) ? null : this.props.birds[this.props.answer]} />
+						<BirdInfo data={isNaN(this.props.clickedIndex) ? null : this.props.birds[this.props.clickedIndex]} />
 					</Grid>
 				</Grid>
 			</main>

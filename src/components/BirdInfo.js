@@ -3,6 +3,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 function emptyCard() {
 	return (
@@ -31,9 +33,12 @@ function cardInfoOutput(bird) {
 				<Typography variant="subtitle1" gutterBottom>
 					{bird.species}
 				</Typography>
-				<audio
+				<AudioPlayer
+					showLoopControl={false}
+					showJumpControls={false}
+					showVolumeControl={false}
 					src={bird.audio}
-					controls/>
+				/>
 				<Typography variant="body1" color="textSecondary" component="p">
 					{bird.description}
 				</Typography>

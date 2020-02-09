@@ -26,6 +26,7 @@ class App extends React.Component {
 			step: 0,
 			guessIndex: SongBirdGameService.getGuessedIndex(birdsData, 0),
 			answer: null,
+			clickedIndex: null,
 			isNextStepAvailable: false,
 			tries: [],
 			isFinish: false,
@@ -34,6 +35,7 @@ class App extends React.Component {
 	}
 
 	handleClick(i) {
+		this.setState({clickedIndex: i});
 		if (this.state.tries.includes(i) || this.state.answer === this.state.guessIndex) {
 			return;
 		}
@@ -48,7 +50,6 @@ class App extends React.Component {
 				isNextStepAvailable: true
 			});
 		} else {
-			// ToDo: refactor
 			const tries = [...this.state.tries];
 			tries.push(i);
 			this.setState({tries: tries});
@@ -61,6 +62,7 @@ class App extends React.Component {
 			step: step,
 			guessIndex: SongBirdGameService.getGuessedIndex(this.state.birdsData, step),
 			answer: null,
+			clickedIndex: null,
 			isNextStepAvailable: false,
 			tries: []
 		});
@@ -76,6 +78,7 @@ class App extends React.Component {
 			score: 0,
 			guessIndex: SongBirdGameService.getGuessedIndex(this.state.birdsData, 0),
 			answer: null,
+			clickedIndex: null,
 			isNextStepAvailable: false,
 			tries: [],
 			isFinish: false,
@@ -102,6 +105,7 @@ class App extends React.Component {
 						birds={this.state.birdsData[this.state.step]}
 						guessIndex={this.state.guessIndex}
 						answer={this.state.answer}
+						clickedIndex={this.state.clickedIndex}
 						isNextStepAvailable={this.state.isNextStepAvailable}
 						tries={this.state.tries}
 						onClick={this.handleClick.bind(this)}/>

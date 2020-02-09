@@ -2,6 +2,10 @@ body {
   background: #ccc !important;
 }
 
+audio {
+  max-width: 100%;
+}
+
 .logo {
   font-family: 'Audiowide', cursive;
   font-size: 48px;
@@ -19,15 +23,36 @@ body {
   text-align: center;
 }
 
-/*.selected {*/
-  /*background: #333;*/
-  /*color: #fff;*/
-/*}*/
-
-.red {
-  background: red !important;
+.MuiMobileStepper-progress {
+  width: 100% !important;
+  margin: 1rem;
 }
 
-.green {
-  background: green !important;
+.rhap_container  {
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+  flex-direction: row;
+  max-width: 100%;
+  min-width: 0;
+  align-items: center;
+}
+
+.rhap_time {
+  display: none;
+}
+
+.rhap_progress-section {
+  flex: 0 0 calc(100% - 46px);
+  order: 1;
+}
+
+.rhap_controls-section {
+  flex: 0 0 46px;
+  margin: 0;
+}
+
+.rhap_additional-controls,
+.rhap_volume-controls {
+  display: none;
 }
