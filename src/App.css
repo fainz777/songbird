@@ -1,7 +1,25 @@
-.selected {
-  background: #333;
-  color: #fff;
+body {
+  background: #ccc !important;
 }
+
+.logo {
+  font-family: 'Audiowide', cursive;
+  font-size: 48px;
+}
+
+.score {
+  text-align: right;
+}
+
+.bird-avatar {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+/*.selected {*/
+  /*background: #333;*/
+  /*color: #fff;*/
+/*}*/
 
 .red {
   background: red !important;

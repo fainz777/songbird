@@ -7,16 +7,17 @@ export class Header extends  React.Component {
 		return (
 			<header>
 				<Grid
+					spacing={3}
 					container
 					direction="row"
 					justify="space-between"
 					alignItems="center"
 				>
 					<Grid item xs={3}>
-						<h1>SongBird</h1>
+						<h1 className="logo">SongBird</h1>
 					</Grid>
 					<Grid item xs={3}>
-						<div>Score: {this.props.score}</div>
+						<div className="score">Score: {this.props.score}</div>
 					</Grid>
 				</Grid>
 				<Grid container spacing={3} alignItems="stretch">

@@ -117,7 +117,7 @@ class App extends React.Component {
 					<Button
 						variant="contained"
 						color="primary"
-						endIcon={<EmojiEvents />}
+						startIcon={<EmojiEvents />}
 						onClick={this.startNewGame.bind(this)}>Новая игра</Button>
 				) : (null)}
 			</Container>
