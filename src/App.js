@@ -9,6 +9,8 @@ import {Main} from "./components/_layout/Main";
 import {Finish} from "./components/_layout/Finish";
 
 import './App.css';
+import Grid from "@material-ui/core/Grid";
+import {Nav} from "./components/_layout/Nav";
 
 const price = 5;
 const penalty = 1;
@@ -104,22 +106,27 @@ class App extends React.Component {
 						tries={this.state.tries}
 						onClick={this.handleClick.bind(this)}/>
 				)}
+				<Grid container spacing={3} alignItems="stretch">
+					<Grid item xs={12}>
+						<div className="buttons-wrapper">
+							{isNextStepAvailable ? (
+								<Button
+									variant="contained"
+									color="primary"
+									endIcon={<DoubleArrow />}
+									onClick={this.goNextStep.bind(this)}>Далее</Button>
+							) : (null)}
 
-				{isNextStepAvailable ? (
-					<Button
-						variant="contained"
-						color="primary"
-						endIcon={<DoubleArrow />}
-						onClick={this.goNextStep.bind(this)}>Далее</Button>
-				) : (null)}
-
-				{isFinish ? (
-					<Button
-						variant="contained"
-						color="primary"
-						startIcon={<EmojiEvents />}
-						onClick={this.startNewGame.bind(this)}>Новая игра</Button>
-				) : (null)}
+							{isFinish ? (
+								<Button
+									variant="contained"
+									color="primary"
+									startIcon={<EmojiEvents />}
+									onClick={this.startNewGame.bind(this)}>Новая игра</Button>
+							) : (null)}
+						</div>
+					</Grid>
+				</Grid>
 			</Container>
 		);
 	}

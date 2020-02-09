@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Nav} from "./Nav";
+import Typography from '@material-ui/core/Typography';
 
 export class Header extends  React.Component {
 	render() {
@@ -17,7 +18,9 @@ export class Header extends  React.Component {
 						<h1 className="logo">SongBird</h1>
 					</Grid>
 					<Grid item xs={3}>
-						<div className="score">Score: {this.props.score}</div>
+						<Typography variant="h4" gutterBottom>
+							<div className="score">Score: {this.props.score}</div>
+						</Typography>
 					</Grid>
 				</Grid>
 				<Grid container spacing={3} alignItems="stretch">
