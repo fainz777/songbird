@@ -10,6 +10,9 @@ export class SongBirdGameService {
   }
 
   static getGuessedIndex(birdsData, step) {
+    if (!birdsData[step]) {
+      return null;
+    }
     return Utils.randomInteger(0, birdsData[step].length);
   }
 

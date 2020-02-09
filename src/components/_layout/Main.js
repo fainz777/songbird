@@ -7,7 +7,8 @@ import { BirdInfo } from "../BirdInfo";
 export class Main extends React.Component {
 	render() {
 		const song = this.props.birds[this.props.guessIndex].audio;
-		const birdName = this.props.birds[this.props.guessIndex].name;
+		const name = this.props.birds[this.props.guessIndex].name;
+		const image = this.props.birds[this.props.guessIndex].image;
 		console.log('Main: ', this.props);
 		return (
 			<main>
@@ -15,7 +16,8 @@ export class Main extends React.Component {
 					<Grid item xs={12}>
 						<Question
 							song={song}
-							birdName={birdName}
+							name={name}
+							image={image}
 							isNextStepAvailable={this.props.isNextStepAvailable}/>
 					</Grid>
 

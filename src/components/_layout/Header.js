@@ -12,10 +12,18 @@ export class Header extends  React.Component {
 					justify="space-between"
 					alignItems="center"
 				>
-					<h1>SongBird</h1>
-					<div>Score: {this.props.score}</div>
+					<Grid item xs={3}>
+						<h1>SongBird</h1>
+					</Grid>
+					<Grid item xs={3}>
+						<div>Score: {this.props.score}</div>
+					</Grid>
 				</Grid>
-				<Nav step={this.props.step}/>
+				<Grid container spacing={3} alignItems="stretch">
+					<Grid item xs={12}>
+						<Nav step={this.props.step} />
+					</Grid>
+				</Grid>
 			</header>
 		);
 	}

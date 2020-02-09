@@ -1,11 +1,12 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import DoubleArrow from '@material-ui/icons/DoubleArrow';
+import EmojiEvents from '@material-ui/icons/EmojiEvents';
 import {SongBirdGameService} from "./services/songBirdGameService";
 import {Header} from './components/_layout/Header';
 import {Main} from "./components/_layout/Main";
+import {Finish} from "./components/_layout/Finish";
 
 import './App.css';
 
@@ -24,7 +25,9 @@ class App extends React.Component {
 			guessIndex: SongBirdGameService.getGuessedIndex(birdsData, 0),
 			answer: null,
 			isNextStepAvailable: false,
-			tries: []
+			tries: [],
+			isFinish: false,
+			maxScore: price * birdsData.length,
 		};
 	}
 
@@ -59,30 +62,63 @@ class App extends React.Component {
 			isNextStepAvailable: false,
 			tries: []
 		});
+
+		if (step === this.state.birdsData.length) {
+			this.setState({isFinish: true});
+		}
+	}
+
+	startNewGame() {
+		this.setState({
+			step: 0,
+			score: 0,
+			guessIndex: SongBirdGameService.getGuessedIndex(this.state.birdsData, 0),
+			answer: null,
+			isNextStepAvailable: false,
+			tries: [],
+			isFinish: false,
+		});
 	}
 
 	render() {
 		const isNextStepAvailable = this.state.isNextStepAvailable;
-console.log('App: ', this.state);
+		const isFinish = this.state.isFinish;
+
 		return (
 			<Container maxWidth="lg">
 				<Header
 					score={this.state.score}
 					step={this.state.step} />
-				<Main
-					birds={this.state.birdsData[this.state.step]}
-					guessIndex={this.state.guessIndex}
-					answer={this.state.answer}
-					isNextStepAvailable={this.state.isNextStepAvailable}
-					tries={this.state.tries}
-					onClick={this.handleClick.bind(this)}/>
+
+				{isFinish ? (
+					<Finish
+						score={this.state.score}
+						maxScore={this.state.maxScore}
+					/>
+				) : (
+					<Main
+						birds={this.state.birdsData[this.state.step]}
+						guessIndex={this.state.guessIndex}
+						answer={this.state.answer}
+						isNextStepAvailable={this.state.isNextStepAvailable}
+						tries={this.state.tries}
+						onClick={this.handleClick.bind(this)}/>
+				)}
 
 				{isNextStepAvailable ? (
 					<Button
 						variant="contained"
 						color="primary"
 						endIcon={<DoubleArrow />}
-						onClick={this.goNextStep.bind(this)}>Next step</Button>
+						onClick={this.goNextStep.bind(this)}>Далее</Button>
+				) : (null)}
+
+				{isFinish ? (
+					<Button
+						variant="contained"
+						color="primary"
+						endIcon={<EmojiEvents />}
+						onClick={this.startNewGame.bind(this)}>Новая игра</Button>
 				) : (null)}
 			</Container>
 		);

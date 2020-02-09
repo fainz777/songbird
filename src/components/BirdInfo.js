@@ -7,8 +7,10 @@ import Typography from '@material-ui/core/Typography';
 function emptyCard() {
 	return (
 		<CardContent>
-			Послушайте плеер.<br/>
-			Выберите птицу из списка
+			<Typography variant="body1" color="textSecondary" component="p">
+				Послушайте плеер.<br/>
+				Выберите птицу из списка
+			</Typography>
 		</CardContent>
 
 	);
@@ -26,13 +28,13 @@ function cardInfoOutput(bird) {
 				<Typography gutterBottom variant="h5" component="h2">
 					{bird.name}
 				</Typography>
-				<Typography gutterBottom variant="h5" component="h2">
+				<Typography variant="subtitle1" gutterBottom>
 					{bird.species}
 				</Typography>
 				<audio
 					src={bird.audio}
 					controls/>
-				<Typography variant="body2" color="textSecondary" component="p">
+				<Typography variant="body1" color="textSecondary" component="p">
 					{bird.description}
 				</Typography>
 			</CardContent>
@@ -57,10 +59,7 @@ export class BirdInfo extends React.Component {
 
 		return (
 			<Card>
-
-				{/*<CardContent>*/}
-					{cardContent}
-				{/*</CardContent>*/}
+				{cardContent}
 			</Card>
 		);
 	}
