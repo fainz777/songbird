@@ -10,6 +10,8 @@ import 'react-h5-audio-player/lib/styles.css';
 
 export class Question extends React.Component {
 	render() {
+		console.log('this.myRef: ', this.myRef);
+		console.log('this.myRef.audio: ', this.myRef.audio);
 		return (
 			<Card>
 				<CardHeader
@@ -20,12 +22,10 @@ export class Question extends React.Component {
 								src={this.props.image}
 								className="bird-avatar"
 							/>
-							// <img alt={this.props.name} src={this.props.image} height={100} />
 						) : (
 							<Avatar className="bird-avatar">
 								<Twitter style={{ fontSize: '3rem', color: '#333' }} />
 							</Avatar>
-							//<Skeleton variant="circle" width={100} height={100} />
 						)
 					}
 
@@ -39,6 +39,7 @@ export class Question extends React.Component {
 							showLoopControl={false}
 							showJumpControls={false}
 							showVolumeControl={false}
+							ref={this.myRef}
 							src={this.props.song}
 						/>
 					}
