@@ -15,6 +15,14 @@ audio {
   text-align: right;
 }
 
+.red {
+  background: red !important;
+}
+
+.green {
+  background: green !important;
+}
+
 .bird-avatar {
   width: 100px !important;
   height: 100px !important;

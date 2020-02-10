@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import Skeleton from '@material-ui/lab/Skeleton';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
@@ -10,8 +9,6 @@ import 'react-h5-audio-player/lib/styles.css';
 
 export class Question extends React.Component {
 	render() {
-		console.log('this.myRef: ', this.myRef);
-		console.log('this.myRef.audio: ', this.myRef.audio);
 		return (
 			<Card>
 				<CardHeader
@@ -36,10 +33,10 @@ export class Question extends React.Component {
 					}
 					subheader={
 						<AudioPlayer
+							autoPlayAfterSrcChange ={false}
 							showLoopControl={false}
 							showJumpControls={false}
 							showVolumeControl={false}
-							ref={this.myRef}
 							src={this.props.song}
 						/>
 					}
