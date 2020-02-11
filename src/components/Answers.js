@@ -5,7 +5,6 @@ import {AnswerItem} from "./AnswerItem";
 
 export class Answers extends React.Component {
 	render () {
-		console.log('Answers: ', this.props);
 		const listItems = this.props.birds.map((bird, i) => {
 			const itemClass = this.props.tries.includes(i) ? 'wrong-answer' :
 				(this.props.answer === i ? 'correct-answer' : '');

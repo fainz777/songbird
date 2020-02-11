@@ -9,7 +9,7 @@ export class Main extends React.Component {
 		const song = this.props.birds[this.props.guessIndex].audio;
 		const name = this.props.birds[this.props.guessIndex].name;
 		const image = this.props.birds[this.props.guessIndex].image;
-		console.log('Main: ', this.props);
+
 		return (
 			<main>
 				<Grid container spacing={3} alignItems="stretch">

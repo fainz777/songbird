@@ -7,6 +7,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import MobileStepper from '@material-ui/core/MobileStepper';
 
 import CardContent from '@material-ui/core/CardContent';
+import Typography from "@material-ui/core/Typography";
 
 const nav = [
 	'Разминка',
@@ -27,13 +28,26 @@ export class Nav extends React.Component {
 				item={item} />
 		);
 
+		let step = this.props.step + 1;
+		step = step > nav.length ? nav.length : step;
+
 		return (
 			<Card>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h4"
+						component="h2"
+						style={{textAlign: 'center'}}>
+						{step} / {nav.length}
+					</Typography>
 					<MobileStepper
 						variant="progress"
 						position="static"
 						steps={nav.length}
 						activeStep={this.props.step} />
+				</CardContent>
+
 
 				{/*<br/><br/>
 

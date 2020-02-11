@@ -39,7 +39,6 @@ function cardInfoOutput(bird) {
 					showJumpControls={false}
 					showVolumeControl={false}
 					src={bird.audio}
-					onPlay={e => console.log("onPlay: ", e.target.src, e)}
 				/>
 				<Typography variant="body1" color="textSecondary" component="p">
 					{bird.description}

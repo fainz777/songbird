@@ -1,26 +1,52 @@
 body {
-  background: #ccc !important;
+  background: #ccc url(./assets/img/bg.jpg) center/cover no-repeat !important;
+  min-height: 100vh;
+  position: relative;
+}
+
+body:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 audio {
   max-width: 100%;
 }
 
+#root {
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.app-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
 .logo {
   font-family: 'Audiowide', cursive;
   font-size: 48px;
+  color: #fff;
+  text-shadow: 2px 2px 7px rgba(11, 66, 11, 0.7);
 }
 
 .score {
   text-align: right;
+  color: #fff;
 }
 
 .wrong-answer {
-  background: red !important;
+  background: #ffcdd2 !important;
 }
 
 .correct-answer {
-  background: green !important;
+  background: #c8e6c9 !important;
 }
 
 .bird-avatar {
@@ -30,10 +56,12 @@ audio {
 .buttons-wrapper {
   text-align: center;
 }
+.MuiMobileStepper-root {
+  background: none !important;
+}
 
 .MuiMobileStepper-progress {
   width: 100% !important;
-  margin: 1rem;
 }
 
 .rhap_container  {

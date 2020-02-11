@@ -11,7 +11,9 @@ import {Finish} from "./components/_layout/Finish";
 import './App.css';
 import Grid from "@material-ui/core/Grid";
 import {Nav} from "./components/_layout/Nav";
-
+import correctSound from './assets/media/correct.m4a';
+import wrongSound from './assets/media/wrong.m4a';
+console.log('correctSound: ', correctSound)
 const price = 5;
 const penalty = 1;
 
@@ -32,6 +34,9 @@ class App extends React.Component {
 			isFinish: false,
 			maxScore: price * birdsData.length,
 		};
+
+		this.correctAudioPlayer = React.createRef();
+		this.wrongAudioPlayer = React.createRef();
 	}
 
 	handleClick(i) {
@@ -43,17 +48,24 @@ class App extends React.Component {
 		this.setState({answer: i});
 
 		if (i === this.state.guessIndex) {
+			this.playAudio(this.wrongAudioPlayer.current, this.correctAudioPlayer.current);
 			const score = this.state.score + price - penalty * this.state.tries.length;
-			this.setState({score: score});
-
 			this.setState({
+				score: score,
 				isNextStepAvailable: true
 			});
 		} else {
+			this.playAudio(this.correctAudioPlayer.current, this.wrongAudioPlayer.current);
 			const tries = [...this.state.tries];
 			tries.push(i);
 			this.setState({tries: tries});
 		}
+	}
+
+	playAudio(playerOff, playerOn) {
+		playerOff.pause();
+		playerOff.currentTime = 0;
+		playerOn.play();
 	}
 
 	goNextStep() {
@@ -89,8 +101,10 @@ class App extends React.Component {
 		const isNextStepAvailable = this.state.isNextStepAvailable;
 		const isFinish = this.state.isFinish;
 
+		console.log('correct answer ',this.state.guessIndex + 1)
+
 		return (
-			<Container maxWidth="lg">
+			<Container className="app-wrapper" maxWidth="lg">
 				<Header
 					score={this.state.score}
 					step={this.state.step} />
@@ -131,6 +145,12 @@ class App extends React.Component {
 						</div>
 					</Grid>
 				</Grid>
+				<audio
+					src={correctSound}
+					ref={this.correctAudioPlayer} />
+				<audio
+					src={wrongSound}
+					ref={this.wrongAudioPlayer} />
 			</Container>
 		);
 	}
