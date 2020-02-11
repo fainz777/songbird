@@ -15,11 +15,11 @@ audio {
   text-align: right;
 }
 
-.red {
+.wrong-answer {
   background: red !important;
 }
 
-.green {
+.correct-answer {
   background: green !important;
 }
 

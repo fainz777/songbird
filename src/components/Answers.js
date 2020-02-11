@@ -7,8 +7,8 @@ export class Answers extends React.Component {
 	render () {
 		console.log('Answers: ', this.props);
 		const listItems = this.props.birds.map((bird, i) => {
-			const itemClass = this.props.tries.includes(i) ? 'red' :
-				(this.props.answer === i ? 'green' : '');
+			const itemClass = this.props.tries.includes(i) ? 'wrong-answer' :
+				(this.props.answer === i ? 'correct-answer' : '');
 
 			return (
 				<AnswerItem
