@@ -63,9 +63,15 @@ class App extends React.Component {
 	}
 
 	playAudio(playerOff, playerOn) {
-		playerOff.pause();
-		playerOff.currentTime = 0;
+		this.resetAudio();
 		playerOn.play();
+	}
+
+	resetAudio() {
+		this.correctAudioPlayer.current.pause();
+		this.correctAudioPlayer.current.currentTime = 0;
+		this.wrongAudioPlayer.current.pause();
+		this.wrongAudioPlayer.current.currentTime = 0;
 	}
 
 	goNextStep() {
