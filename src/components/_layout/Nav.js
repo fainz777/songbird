@@ -31,6 +31,9 @@ export class Nav extends React.Component {
 		let step = this.props.step + 1;
 		step = step > nav.length ? nav.length : step;
 
+		let activeStepIndex = this.props.step;
+		activeStepIndex = activeStepIndex === nav.length ? (activeStepIndex - 1) : activeStepIndex;
+
 		return (
 			<Card>
 				<CardContent>
@@ -45,7 +48,7 @@ export class Nav extends React.Component {
 						variant="progress"
 						position="static"
 						steps={nav.length}
-						activeStep={this.props.step} />
+						activeStep={activeStepIndex} />
 				</CardContent>
 
 
