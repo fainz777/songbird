@@ -2,9 +2,6 @@ import birdsData from "../data/birds";
 import {Utils} from './utils';
 
 export class SongBirdGameService {
-  constructor() {
-  }
-
   static getData() {
     return birdsData;
   }

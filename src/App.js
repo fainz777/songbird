@@ -10,7 +10,6 @@ import {Finish} from "./components/_layout/Finish";
 
 import './App.css';
 import Grid from "@material-ui/core/Grid";
-import {Nav} from "./components/_layout/Nav";
 import correctSound from './assets/media/correct.m4a';
 import wrongSound from './assets/media/wrong.m4a';
 const price = 5;

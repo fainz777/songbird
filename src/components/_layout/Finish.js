@@ -20,7 +20,7 @@ export class Finish extends Component {
 								<Typography variant="body1" gutterBottom>
 									Вы прошли викторину и набрали {this.props.score} из {this.props.maxScore} возможных баллов
 								</Typography>
-								{isMaxScore ? (<img src={GratsImg} />) : (null) }
+								{isMaxScore ? (<img src={GratsImg} alt="Minions congratulate you!" />) : (null) }
 							</CardContent>
 						</Card>
 					</Grid>

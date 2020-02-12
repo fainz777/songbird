@@ -44,7 +44,7 @@ function cardInfoOutput(bird) {
 					{bird.description}
 				</Typography>
 				<Typography variant="body1" color="textSecondary" component="p">
-					<a href={bird.url} target="_blank">Узнать больше</a>
+					<a href={bird.url} target="_blank" rel="noopener noreferrer">Узнать больше</a>
 				</Typography>
 			</CardContent>
 		</div>
