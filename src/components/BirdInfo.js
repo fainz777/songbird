@@ -22,7 +22,7 @@ function cardInfoOutput(bird) {
 	return (
 		<div>
 			<CardMedia
-				style={{'height': '240px'}}
+				style={{'height': '400px'}}
 				image={bird.image}
 				title={bird.name}
 			/>
@@ -42,6 +42,9 @@ function cardInfoOutput(bird) {
 				/>
 				<Typography variant="body1" color="textSecondary" component="p">
 					{bird.description}
+				</Typography>
+				<Typography variant="body1" color="textSecondary" component="p">
+					<a href={bird.url} target="_blank">Узнать больше</a>
 				</Typography>
 			</CardContent>
 		</div>

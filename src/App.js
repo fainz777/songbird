@@ -13,7 +13,6 @@ import Grid from "@material-ui/core/Grid";
 import {Nav} from "./components/_layout/Nav";
 import correctSound from './assets/media/correct.m4a';
 import wrongSound from './assets/media/wrong.m4a';
-console.log('correctSound: ', correctSound)
 const price = 5;
 const penalty = 1;
 
@@ -113,7 +112,8 @@ class App extends React.Component {
 			<Container className="app-wrapper" maxWidth="lg">
 				<Header
 					score={this.state.score}
-					step={this.state.step} />
+					step={this.state.step}
+					totalSteps={this.state.birdsData.length}/>
 
 				{isFinish ? (
 					<Finish

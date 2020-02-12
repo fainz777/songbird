@@ -25,7 +25,9 @@ export class Header extends  React.Component {
 				</Grid>
 				<Grid container spacing={3} alignItems="stretch">
 					<Grid item xs={12}>
-						<Nav step={this.props.step} />
+						<Nav
+							step={this.props.step}
+							totalSteps={this.props.totalSteps} />
 					</Grid>
 				</Grid>
 			</header>

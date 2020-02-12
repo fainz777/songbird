@@ -9,30 +9,13 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from "@material-ui/core/Typography";
 
-const nav = [
-	'Разминка',
-	'Воробьиные',
-	'Лесные птицы',
-	'Певчие птицы',
-	'Хищные птицы',
-	'Морские птицы'
-];
-
 export class Nav extends React.Component {
 	render() {
-		const navItems = nav.map((item, i) =>
-			<NavItem
-				step={this.props.step}
-				key={i}
-				current={i}
-				item={item} />
-		);
-
 		let step = this.props.step + 1;
-		step = step > nav.length ? nav.length : step;
+		step = step > this.props.totalSteps ? this.props.totalSteps : step;
 
 		let activeStepIndex = this.props.step;
-		activeStepIndex = activeStepIndex === nav.length ? (activeStepIndex - 1) : activeStepIndex;
+		activeStepIndex = activeStepIndex === this.props.totalSteps ? (activeStepIndex - 1) : activeStepIndex;
 
 		return (
 			<Card>
@@ -42,12 +25,12 @@ export class Nav extends React.Component {
 						variant="h4"
 						component="h2"
 						style={{textAlign: 'center'}}>
-						{step} / {nav.length}
+						{step} / {this.props.totalSteps}
 					</Typography>
 					<MobileStepper
 						variant="progress"
 						position="static"
-						steps={nav.length}
+						steps={this.props.totalSteps}
 						activeStep={activeStepIndex} />
 				</CardContent>
 
